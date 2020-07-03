@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Header.scss';
+import { connect } from 'react-redux';
+import { signIn, signOut } from '../actions';
 
 class Header extends Component {
   render() {
@@ -15,5 +17,26 @@ class Header extends Component {
     );
   }
 }
+const mapStateToProps = ({ profile, isLogin }) => {
+  return {
+    ...profile,
+    isLogin
+  };
+};
+const getUserInfo = () => {
+  return fetch('https://my-json-server.typicode.com/kevindongzg/demo/login', {
+    method: 'GET'
+  }).then(response => response.json());
+};
+const mapDispatchToProps = dispatch => ({
+  onLogIn() {
+    getUserInfo().then(data => {
+      dispatch(signIn(data));
+    });
+  },
+  onLogOut() {
+    dispatch(signOut);
+  }
+});
 
-export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
