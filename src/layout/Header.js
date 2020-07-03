@@ -9,7 +9,7 @@ class Header extends Component {
       <header className="header">
         <div className="header-wrapper">
           {this.props.avatar && <img src={this.props.avatar} alt="头像" />}
-          <span className="username">用户名</span>
+          <span className="username">{this.props.name}</span>
           <a
             className="sign"
             onClick={this.props.isLogin ? this.props.onLogOut : this.props.onLogIn}
