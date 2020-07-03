@@ -1,9 +1,10 @@
-export const signIn = payload => {
+const signIn = payload => {
   return {
     type: 'SIGN_IN',
     payload
   };
 };
-export const signOut = {
+const signOut = {
   type: 'SIGN_OUT'
 };
+export { signIn, signOut };
