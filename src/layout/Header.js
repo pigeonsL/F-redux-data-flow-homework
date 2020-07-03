@@ -12,7 +12,7 @@ class Header extends Component {
           <span className="username">用户名</span>
           <a
             className="sign"
-            onClick={this.props.isLogin ? this.props.onLogIn : this.props.onLogOut}
+            onClick={this.props.isLogin ? this.props.onLogOut : this.props.onLogIn}
           >
             {this.props.isLogin ? 'Sign Out' : 'Sign In'}
           </a>
